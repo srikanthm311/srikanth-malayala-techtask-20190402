@@ -1,0 +1,17 @@
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT"
+Header set Access-Control-Max-Age "1000"
+Header set Access-Control-Allow-Headers "x-requested-with, Content-Type, origin, authorization, accept, client-security-token"
+
+RewriteEngine on
+RewriteBase /twitter/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript
+</IfModule>
+
+
